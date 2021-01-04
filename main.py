@@ -42,9 +42,6 @@ class Window(QWidget):
         head.setFont(QFont("Stencil", 26))
         version = QLabel("Version 1.0", self)
         version.setGeometry(10, 0, 61, 16)
-        replayl = QLabel("Replay Button:", self)
-        replayl.setGeometry(40, 140, 141, 31)
-        replayl.setFont(QFont("Dubai Medium", 16))
         state = QLabel("Status", self)
         state.setGeometry(40, 210, 71, 31)
         state.setFont(QFont("Dubai Medium", 16))
@@ -59,10 +56,13 @@ class Window(QWidget):
         self.confn.setFont(QFont("Dubai Medium", 16))
 
         # Button Label, Check
-        replayd = QLabel("Button not found", self)
-        replayd.setGeometry(210, 140, 155, 31)
-        replayd.setFont(QFont("Dubai Medium", 16))
-        replayd.setStyleSheet("color: red")
+        #replayl = QLabel("Replay Button:", self)
+        #replayl.setGeometry(40, 140, 141, 31)
+        #replayl.setFont(QFont("Dubai Medium", 16))
+        #replayd = QLabel("Button not found", self)
+        #replayd.setGeometry(210, 140, 155, 31)
+        #replayd.setFont(QFont("Dubai Medium", 16))
+        #replayd.setStyleSheet("color: red")
 
         # Bot-status
         self.stater = QLabel("Not running", self)
