@@ -48,8 +48,7 @@ class Window(QWidget):
         confl = QLabel("Replay", self)
         confl.setGeometry(450, 160, 61, 21)
         confl.setFont(QFont("Dubai Medium", 16))
-        status = QLabel("Status:", self)
-        status.setGeometry(430, 356, 41, 16)
+        
 
         self.confn = QLabel(str(self.counter), self)
         self.confn.setGeometry(530, 160, 61, 21)
@@ -78,10 +77,14 @@ class Window(QWidget):
         submit = QPushButton("Submit", self)
         submit.setGeometry(480, 222, 61, 23)
         submit.clicked.connect(self.submit)
-        # Game detection
-        self.statusg = QLabel("Game not detected", self)
-        self.statusg.setGeometry(475, 356, 100, 16)
-        self.statusg.setStyleSheet("color: red")
+
+        # Game detection 
+        #status = QLabel("Status:", self)
+        #status.setGeometry(430, 356, 41, 16)
+        #self.statusg = QLabel("Game not detected", self)
+        #self.statusg.setGeometry(475, 356, 100, 16)
+        #self.statusg.setStyleSheet("color: red")
+       
 
         # Window
         self.setGeometry(600, 300, 584, 374)
