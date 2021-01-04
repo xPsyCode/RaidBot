@@ -1,15 +1,10 @@
-import random
-import sys
-import threading
-import time
+import sys,threading,time,random,os
 import cv2
 import pyautogui
 from PIL import ImageGrab
 import pygetwindow
 from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QSpinBox
-import pygetwindow
-
 
 
 class Window(QWidget):
@@ -34,7 +29,7 @@ class Window(QWidget):
         # Exit Button
         close = QPushButton("Close", self)
         close.setGeometry(410, 290, 141, 41)
-        close.clicked.connect(self.close)
+        close.clicked.connect(self.clos)
 
         # Headline, Version, Replay Label, Status Label, ConfigLabel
         head = QLabel("Raid: Shadow Legends Bot", self)
@@ -91,6 +86,12 @@ class Window(QWidget):
         self.setWindowTitle("Raid Bot")
         self.setWindowIcon(QIcon("image\\icon.png"))
         self.show()
+    def clos(self):
+        try:
+            os.remove("image\\img.jpg")
+            self.close()
+        except:
+            self.close()
 
     def submit(self):
         self.counter = self.spinco.value()
@@ -134,12 +135,12 @@ class Window(QWidget):
 
     def loopex(self):
         self.i = False
-        self.stater.setText("Is terminated")
+        #self.stater.setText("Is terminated")
 
     def checkup(self):
-        while True:
+        while self.i:
             img = ImageGrab.grab()
-            img.save("img.jpg")
+            img.save("image\\img.jpg")
 
             img_main = cv2.imread("image\\img.jpg", cv2.COLOR_BGR2GRAY)
             temp = cv2.imread("temp\\temp3.jpg", cv2.COLOR_BGR2GRAY)
@@ -150,7 +151,6 @@ class Window(QWidget):
 
             a, b = max_loc
             max_loc = a + 50, b + 30
-            # print(max_val)
             if max_val > 0.75:
                 time.sleep(random.randint(1, 5))
                 pyautogui.click(max_loc)
@@ -166,3 +166,4 @@ app = QApplication(sys.argv)
 window = Window()
 
 sys.exit(app.exec_())
+
